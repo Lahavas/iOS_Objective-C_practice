@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BNRQuizViewController.h
 //  Quiz
 //
 //  Created by Jaeho on 2017. 11. 5..
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BNRQuizViewController : UIViewController
 
 @end
-

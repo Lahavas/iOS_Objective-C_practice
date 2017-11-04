@@ -6,7 +6,9 @@
 //  Copyright © 2017년 yeon. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "BNRAppDelegate.h"
+
+#import "BNRQuizViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    BNRQuizViewController *quizViewController = [[BNRQuizViewController alloc] init];
+    [self.window setRootViewController:quizViewController];
+    
+    [self.window setBackgroundColor:UIColor.whiteColor];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
