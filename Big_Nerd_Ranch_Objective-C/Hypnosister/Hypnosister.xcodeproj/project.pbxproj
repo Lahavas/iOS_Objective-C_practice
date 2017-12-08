@@ -108,13 +108,13 @@
 				CE6800C61FDA7F780056D802 /* AppDelegate.m */,
 				CE6800C81FDA7F780056D802 /* ViewController.h */,
 				CE6800C91FDA7F780056D802 /* ViewController.m */,
+				CE6800F71FDA80110056D802 /* HypnosisView.h */,
+				CE6800F81FDA80110056D802 /* HypnosisView.m */,
 				CE6800CB1FDA7F780056D802 /* Main.storyboard */,
 				CE6800CE1FDA7F780056D802 /* Assets.xcassets */,
 				CE6800D01FDA7F780056D802 /* LaunchScreen.storyboard */,
 				CE6800D31FDA7F780056D802 /* Info.plist */,
 				CE6800D41FDA7F780056D802 /* main.m */,
-				CE6800F71FDA80110056D802 /* HypnosisView.h */,
-				CE6800F81FDA80110056D802 /* HypnosisView.m */,
 			);
 			path = Hypnosister;
 			sourceTree = "<group>";
