@@ -29,7 +29,14 @@
     return self;
 }
 
-#pragma mark - Drawing View
+#pragma mark - Setter Method
+
+- (void)setCircleColor:(UIColor *)circleColor {
+    _circleColor = circleColor;
+    [self setNeedsDisplay];
+}
+
+#pragma mark - View Drawing
 
 - (void)drawRect:(CGRect)rect {
     CGRect bounds = self.bounds;
@@ -55,6 +62,23 @@
     }
     
     [path stroke];
+}
+
+#pragma mark - Touch Event
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSLog(@"%@ was touched", self);
+    
+    CGFloat red = (arc4random() % 100) / 100.0;
+    CGFloat green = (arc4random() % 100) / 100.0;
+    CGFloat blue = (arc4random() % 100) / 100.0;
+    
+    UIColor *randomColor = [UIColor colorWithRed:red
+                                           green:green
+                                            blue:blue
+                                           alpha:1.0];
+    
+    [self setCircleColor:randomColor];
 }
 
 @end
