@@ -21,11 +21,21 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
-    CGRect firstFrame = self.window.bounds;
+    CGRect screenRect = self.window.bounds;
+    CGRect bigRect = screenRect;
+    bigRect.size.width *= 2.0;
     
-    HypnosisView *firstView = [[HypnosisView alloc] initWithFrame:firstFrame];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:screenRect];
+    screenRect.origin.x += screenRect.size.width;
+    HypnosisView *anotherHypnosisView = [[HypnosisView alloc] initWithFrame:screenRect];
     
-    [self.window addSubview:firstView];
+    [scrollView setContentSize:bigRect.size];
+    [scrollView setPagingEnabled:YES];
+    
+    [self.window addSubview:scrollView];
+    [scrollView addSubview:hypnosisView];
+    [scrollView addSubview:anotherHypnosisView];
     
     [self.window setBackgroundColor:UIColor.whiteColor];
     [self.window makeKeyAndVisible];
