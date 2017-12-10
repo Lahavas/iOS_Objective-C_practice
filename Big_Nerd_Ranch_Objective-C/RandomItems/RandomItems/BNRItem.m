@@ -17,6 +17,33 @@
     return descriptionString;
 }
 
+#pragma mark - Initializer
+
+-(instancetype)init {
+    return [self initWithItemName:@"Item"];
+}
+
+- (instancetype)initWithItemName:(NSString *)itemName {
+    return [self initWithItemName:itemName
+                   valueInDollars:0
+                     serialNumber:@""];
+}
+
+- (instancetype)initWithItemName:(NSString *)itemName
+                  valueInDollars:(NSInteger)valueInDollars
+                    serialNumber:(NSString *)serialNumber {
+    self = [super init];
+    
+    if (self) {
+        _itemName = itemName;
+        _valueInDollars = valueInDollars;
+        _serialNumber = serialNumber;
+        _dateCreated = [[NSDate alloc] init];
+    }
+    
+    return self;
+}
+
 #pragma mark - Accessor Methods
 
 - (NSString *)itemName {

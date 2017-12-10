@@ -15,6 +15,16 @@
     NSDate *_dateCreated;
 }
 
+#pragma mark - Initializer
+
+- (instancetype)initWithItemName:(NSString *)itemName;
+
+- (instancetype)initWithItemName:(NSString *)itemName
+                  valueInDollars:(NSInteger)valueInDollars
+                    serialNumber:(NSString *)serialNumber;
+
+#pragma mark - Accessor Methods
+
 - (NSString *)itemName;
 - (void)setItemName:(NSString *)itemName;
 
