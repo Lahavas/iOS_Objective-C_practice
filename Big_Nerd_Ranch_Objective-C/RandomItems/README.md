@@ -3,6 +3,12 @@
 
 RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니다.
 
+#### 도전 과제
+
+* [ ] Bug Finding
+* [ ] Another Initializer
+* [ ] Another Class
+
 ----------------------------------------------------------------------
 
 ### Ch02 Objective-C
@@ -25,15 +31,21 @@ RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니�
     * Overriding methods
     * Initializers
         * The designated initializer
-        * instancetype
-        * id
-    * Implementing the designated initializer
-        * self
-        * super
-    * Confirming initialization success
-    * Instance variables in initializers
-    * Other initializers and the initializer chain
-    * Using initializers
+            * instancetype
+            * id
+        * Implementing the designated initializer
+            * self
+            * super
+        * Confirming initialization success
+        * Instance variables in initializers
+        * Other initializers and the initializer chain
+        * Using initializers
+    * Class methods
+    * Testing your subclass
+* More on NSArray and NSMutableArray
+* Exceptions and Unrecognized Selectors
+* For the More Curious: Class Names
+* For the More Curious: #import and @import
 
 #### 주요 개념
 
@@ -61,6 +73,11 @@ RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니�
             * To run the method
                 * send that object a **message**
             * Class vs. instance method
+                * **Class Method**
+                    * To create new instances of the class
+                    * To retrieve some global property of the class
+                    * *Convenience Methods*
+                    * In class method, *self* refers to the **class object**
     * Object's Life Cycle
         * Creating
             * Send an **alloc** message to a class
@@ -97,10 +114,14 @@ RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니�
             * when it is no longer needed
                 * Set the variable that points to it to **nil**
                     * A message sent to nil is *ignored*
+    * **isa pointer**
+        * Evary object has an instance variable called *isa*
+        * The class sets the isa instance variable of the returned object to point back at that class
+        * Responding to a message happens at **runtime**
   
-* The class file
-    * Header file (Interface file)
-    * Implementation file
+* The Class File
+    * Header File (Interface File)
+    * Implementation File
   
 * **NSObject**
     * The root class of the entire hierarchy
@@ -119,7 +140,98 @@ RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니�
   
 #### 참고 자료
 
->  
+> [Programming with Objective-C 자료](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210)  
+> [Objective-C Runtime Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html)  
+> [NSObject 관련 자료](https://developer.apple.com/documentation/objectivec/nsobject?language=objc)  
+
+----------------------------------------------------------------------
+
+### Ch03 Managing Memory with ARC
+
+* The Stack
+* The Heap
+    * ARC and memory management
+* Pointer Variables and Object Ownership
+    * How objects lose owners
+        * Changing a pointer
+        * Setting a pointer to nil
+        * The owner is destroyed
+        * Removing an object from a collection
+    * Ownership chains
+* Strong and Weak References
+* Properties
+    * Declaring properties
+    * Property attributes
+        * Multi-threading attribute
+        * Read/write attribute
+        * Memory management attribute
+    * Custom accessors with properties
+* For the More Curious: Property Synthesis
+* For the More Curious: Autorelease Pool and ARC History
+
+#### 주요 개념
+
+* **Stack**
+    * The *frame* for method
+        * The frame stores the values, *local variable*
+            * for variables declared inside the method
+  
+* **Heap**
+    * is where all Objective-C objects live
+        * for object's instance variables
+            * Primitive type
+            * Address type (Pointer)
+    * Heap memory were infinite
+        * This resource *must be managed*
+
+* ARC (Automatic Reference Counting)  
+    * **Object Ownership**
+        * Pointer variable imply *ownership* of the objects
+            * When a method (or function) has a local variable that points to an object
+                * that variable is said to *own* the object being pointed to
+            * When an object has an instance variable that points to another object
+                * the object with the pointer is said to *own* the object being pointed to
+        * How objects lose owners
+            * Changeing a pointer
+            * Setting a pointer to nil
+            * The owner is destroyed
+            * Removing an object from a collection
+        * Ownership chains
+            * The destruction of a single object
+                * can set off a chain reaction of loss of ownership, object destruction, and freeing up of memory
+            * dealloc method
+                * be sent to an object just before it is destroyed
+    * Strong reference vs weak reference
+        * Strong reference
+            * A pointer variable points to an object
+            * Object has an owner and will stay alive
+        * Weak reference
+            * A pointer variable *cannot* take ownership of an object that it points to
+            * To prevent a problem called a *Strong Reference Cycle* (*retain cycle*)
+                * Two or more objects have strong references to each other
+        * Strong Reference Cycle
+            * Parent-Child Relationship
+                * The parent can own its child
+                    * but a child should **never own its parent**
+  
+* **Property**
+    * A convenient alternative to writing out accessor methods
+        * To save a lot of typing
+        * To make your class files easier to read
+    * **Property Attribute**
+        * Multi-threading attribute
+            * nonatomic
+            * atomic (default)
+        * Read/write attribute
+            * readwrite (default)
+                * To implements both a setter and getter
+            * readonly
+                * To implement a getter
+        * Memory management attribute
+  
+#### 참고 자료
+
+> 
 
 ----------------------------------------------------------------------
 

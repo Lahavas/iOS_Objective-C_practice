@@ -77,52 +77,52 @@
     return self;
 }
 
-#pragma mark - Accessor Methods
-
-- (NSString *)itemName {
-    return _itemName;
-}
-
-- (void)setItemName:(NSString *)itemName {
-    _itemName = itemName;
-}
-
-- (NSString *)serialNumber {
-    return _serialNumber;
-}
-
-- (void)setSerialNumber:(NSString *)serialNumber {
-    _serialNumber = serialNumber;
-}
-
-- (int)valueInDollars {
-    return _valueInDollars;
-}
-
-- (void)setValueInDollars:(int)valueInDollars {
-    _valueInDollars = valueInDollars;
-}
-
-- (NSDate *)dateCreated {
-    return _dateCreated;
-}
-
-- (BNRItem *)containedItem {
-    return _containedItem;
-}
-
-- (void)setContainedItem:(BNRItem *)containedItem {
-    _containedItem = containedItem;
-    
-    [containedItem setContainer:self];
-}
-
-- (BNRItem *)container {
-    return _container;
-}
-
-- (void)setContainer:(BNRItem *)container {
-    _container = container;
-}
+//#pragma mark - Accessor Methods
+//
+//- (NSString *)itemName {
+//    return _itemName;
+//}
+//
+//- (void)setItemName:(NSString *)itemName {
+//    _itemName = itemName;
+//}
+//
+//- (NSString *)serialNumber {
+//    return _serialNumber;
+//}
+//
+//- (void)setSerialNumber:(NSString *)serialNumber {
+//    _serialNumber = serialNumber;
+//}
+//
+//- (int)valueInDollars {
+//    return _valueInDollars;
+//}
+//
+//- (void)setValueInDollars:(int)valueInDollars {
+//    _valueInDollars = valueInDollars;
+//}
+//
+//- (NSDate *)dateCreated {
+//    return _dateCreated;
+//}
+//
+//- (BNRItem *)containedItem {
+//    return _containedItem;
+//}
+//
+//- (void)setContainedItem:(BNRItem *)containedItem {
+//    _containedItem = containedItem;
+//    
+//    [containedItem setContainer:self];
+//}
+//
+//- (BNRItem *)container {
+//    return _container;
+//}
+//
+//- (void)setContainer:(BNRItem *)container {
+//    _container = container;
+//}
 
 @end
