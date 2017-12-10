@@ -23,6 +23,17 @@ RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니�
         * Using dot syntax
     * Class vs. instance methods
     * Overriding methods
+    * Initializers
+        * The designated initializer
+        * instancetype
+        * id
+    * Implementing the designated initializer
+        * self
+        * super
+    * Confirming initialization success
+    * Instance variables in initializers
+    * Other initializers and the initializer chain
+    * Using initializers
 
 #### 주요 개념
 
@@ -56,6 +67,23 @@ RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니�
                 * The class creates an object in memory (on the heap)
                 * and gives you the address of the object
             * And send **an initialization message**
+                * **Initializer**
+                    * a class has multiple initializers
+                    * A chain of initializers
+                        * The *designated initializer*
+                            * Every instance variable of an object is **valid**
+                        * instancetype vs id
+                            * instancetype
+                                * an instance of the receiving object
+                            * id
+                                * a pointer to any object
+                        * self vs super
+                            * self
+                                * an implicit local variable
+                            * super
+                                * the search for the method skips the object's class
+                                * and starts at the **superclass**
+                    * If an initializer message failes, it will return *nil*
         * Sending message
             * Message Anatomy
                 * **Receiver**
