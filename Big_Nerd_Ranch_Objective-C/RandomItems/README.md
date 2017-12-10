@@ -184,7 +184,7 @@ RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니�
     * Heap memory were infinite
         * This resource *must be managed*
 
-* ARC (Automatic Reference Counting)  
+* ARC (Automatic Reference Counting)
     * **Object Ownership**
         * Pointer variable imply *ownership* of the objects
             * When a method (or function) has a local variable that points to an object
