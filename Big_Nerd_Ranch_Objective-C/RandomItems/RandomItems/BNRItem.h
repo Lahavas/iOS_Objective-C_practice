@@ -11,16 +11,20 @@
 @interface BNRItem : NSObject {
     NSString *_itemName;
     NSString *_serialNumber;
-    NSInteger _valueInDollars;
+    int _valueInDollars;
     NSDate *_dateCreated;
 }
+
+#pragma mark - Class Methods
+
++ (instancetype)randomItem;
 
 #pragma mark - Initializer
 
 - (instancetype)initWithItemName:(NSString *)itemName;
 
 - (instancetype)initWithItemName:(NSString *)itemName
-                  valueInDollars:(NSInteger)valueInDollars
+                  valueInDollars:(int)valueInDollars
                     serialNumber:(NSString *)serialNumber;
 
 #pragma mark - Accessor Methods
@@ -31,8 +35,8 @@
 - (NSString *)serialNumber;
 - (void)setSerialNumber:(NSString *)serialNumber;
 
-- (NSInteger)valueInDollars;
-- (void)setValueInDollars:(NSInteger)valueInDollars;
+- (int)valueInDollars;
+- (void)setValueInDollars:(int)valueInDollars;
 
 - (NSDate *)dateCreated;
 
