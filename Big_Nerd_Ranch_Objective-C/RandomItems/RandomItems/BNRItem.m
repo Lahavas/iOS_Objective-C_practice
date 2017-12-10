@@ -17,6 +17,12 @@
     return descriptionString;
 }
 
+#pragma mark - Object Life Cycle
+
+- (void)dealloc {
+    NSLog(@"Destroyed: %@", self);
+}
+
 #pragma mark - Class Methods
 
 + (instancetype)randomItem {
@@ -27,8 +33,8 @@
     NSInteger nounIndex = arc4random() % [randomAdjectiveList count];
     
     NSString *randomName = [NSString stringWithFormat:@"%@ %@",
-                            [randomAdjectiveList objectAtIndex:adjectiveIndex],
-                            [randomNounList objectAtIndex:nounIndex]];
+                            randomAdjectiveList[adjectiveIndex],
+                            randomNounList[nounIndex]];
     int randomValueInDollors = arc4random() % 100;
     NSString *randomSerialNumber = [NSString stringWithFormat:@"%c%c%c%c%c",
                                     '0' + arc4random() % 10,
@@ -46,7 +52,7 @@
 
 #pragma mark - Initializer
 
--(instancetype)init {
+- (instancetype)init {
     return [self initWithItemName:@"Item"];
 }
 
@@ -99,6 +105,24 @@
 
 - (NSDate *)dateCreated {
     return _dateCreated;
+}
+
+- (BNRItem *)containedItem {
+    return _containedItem;
+}
+
+- (void)setContainedItem:(BNRItem *)containedItem {
+    _containedItem = containedItem;
+    
+    [containedItem setContainer:self];
+}
+
+- (BNRItem *)container {
+    return _container;
+}
+
+- (void)setContainer:(BNRItem *)container {
+    _container = container;
 }
 
 @end

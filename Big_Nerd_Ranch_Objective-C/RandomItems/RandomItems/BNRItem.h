@@ -13,6 +13,9 @@
     NSString *_serialNumber;
     int _valueInDollars;
     NSDate *_dateCreated;
+    
+    BNRItem *_containedItem;
+    __weak BNRItem *_container;
 }
 
 #pragma mark - Class Methods
@@ -39,5 +42,11 @@
 - (void)setValueInDollars:(int)valueInDollars;
 
 - (NSDate *)dateCreated;
+
+- (BNRItem *)containedItem;
+- (void)setContainedItem:(BNRItem *)containedItem;
+
+- (BNRItem *)container;
+- (void)setContainer:(BNRItem *)container;
 
 @end
