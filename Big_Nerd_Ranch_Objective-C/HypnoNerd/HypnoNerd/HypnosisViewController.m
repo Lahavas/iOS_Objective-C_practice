@@ -80,6 +80,19 @@
         [messageLabel setFrame:frame];
         
         [self.view addSubview:messageLabel];
+        
+        UIInterpolatingMotionEffect *centerXMotionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x"
+                                                                                                           type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        [centerXMotionEffect setMinimumRelativeValue:@(-25)];
+        [centerXMotionEffect setMaximumRelativeValue:@(25)];
+        
+        UIInterpolatingMotionEffect *centerYMotionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y"
+                                                                                                           type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+        [centerYMotionEffect setMinimumRelativeValue:@(-25)];
+        [centerYMotionEffect setMaximumRelativeValue:@(25)];
+        
+        [messageLabel setMotionEffects:@[centerXMotionEffect,
+                                         centerYMotionEffect]];
     }
 }
 
