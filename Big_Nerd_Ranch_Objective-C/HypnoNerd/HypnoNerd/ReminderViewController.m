@@ -42,7 +42,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSLog(@"ReminderViewController loaded its view.");
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.datePicker setMinimumDate:[NSDate dateWithTimeIntervalSinceNow:60]];
 }
 
 #pragma mark - Actions
@@ -50,6 +57,24 @@
 - (IBAction)addReminder:(id)sender {
     NSDate *date = self.datePicker.date;
     NSLog(@"Setting a reminder for %@", date);
+    
+    UNUserNotificationCenter *userNotificationCenter = [UNUserNotificationCenter currentNotificationCenter];
+ 
+    UNMutableNotificationContent *notificationContent = [[UNMutableNotificationContent alloc] init];
+    [notificationContent setBody:@"Hypnotize me!"];
+    
+    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay
+                                                                       fromDate:date];
+    
+    UNCalendarNotificationTrigger *calendarNotificationTrigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:dateComponents
+                                                                                                                         repeats:NO];
+    
+    UNNotificationRequest *notificationRequest = [UNNotificationRequest requestWithIdentifier:@"HypnosisAlarm"
+                                                                                      content:notificationContent
+                                                                                      trigger:calendarNotificationTrigger];
+    
+    [userNotificationCenter addNotificationRequest:notificationRequest
+                             withCompletionHandler:nil];
 }
 
 @end
