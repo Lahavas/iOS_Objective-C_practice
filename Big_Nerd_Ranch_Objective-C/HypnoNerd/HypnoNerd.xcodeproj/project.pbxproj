@@ -15,6 +15,8 @@
 		CE6801B41FDA94F10056D802 /* HypnoNerdUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6801B31FDA94F10056D802 /* HypnoNerdUITests.m */; };
 		CE6801C31FDA95100056D802 /* HypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6801C21FDA95100056D802 /* HypnosisView.m */; };
 		CE6801C61FDA97F10056D802 /* HypnosisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6801C51FDA97F10056D802 /* HypnosisViewController.m */; };
+		CE84C5871FE1027D00642A52 /* ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84C5861FE1027D00642A52 /* ReminderViewController.m */; };
+		CE84C5891FE1029E00642A52 /* ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE84C5881FE1029E00642A52 /* ReminderViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,9 @@
 		CE6801C21FDA95100056D802 /* HypnosisView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HypnosisView.m; sourceTree = "<group>"; };
 		CE6801C41FDA97F10056D802 /* HypnosisViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HypnosisViewController.h; sourceTree = "<group>"; };
 		CE6801C51FDA97F10056D802 /* HypnosisViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HypnosisViewController.m; sourceTree = "<group>"; };
+		CE84C5851FE1027D00642A52 /* ReminderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReminderViewController.h; sourceTree = "<group>"; };
+		CE84C5861FE1027D00642A52 /* ReminderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReminderViewController.m; sourceTree = "<group>"; };
+		CE84C5881FE1029E00642A52 /* ReminderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +113,9 @@
 				CE6801C21FDA95100056D802 /* HypnosisView.m */,
 				CE6801C41FDA97F10056D802 /* HypnosisViewController.h */,
 				CE6801C51FDA97F10056D802 /* HypnosisViewController.m */,
+				CE84C5851FE1027D00642A52 /* ReminderViewController.h */,
+				CE84C5861FE1027D00642A52 /* ReminderViewController.m */,
+				CE84C5881FE1029E00642A52 /* ReminderViewController.xib */,
 				CE6801981FDA94F10056D802 /* Assets.xcassets */,
 				CE68019A1FDA94F10056D802 /* LaunchScreen.storyboard */,
 				CE68019D1FDA94F10056D802 /* Info.plist */,
@@ -241,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE68019C1FDA94F10056D802 /* LaunchScreen.storyboard in Resources */,
+				CE84C5891FE1029E00642A52 /* ReminderViewController.xib in Resources */,
 				CE6801991FDA94F10056D802 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +279,7 @@
 				CE6801911FDA94F10056D802 /* AppDelegate.m in Sources */,
 				CE6801C31FDA95100056D802 /* HypnosisView.m in Sources */,
 				CE6801C61FDA97F10056D802 /* HypnosisViewController.m in Sources */,
+				CE84C5871FE1027D00642A52 /* ReminderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

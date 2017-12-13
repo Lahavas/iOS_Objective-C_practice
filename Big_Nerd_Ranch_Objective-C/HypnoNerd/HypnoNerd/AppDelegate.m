@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "HypnosisViewController.h"
+#import "ReminderViewController.h"
 
 @interface AppDelegate ()
 
@@ -38,8 +39,13 @@
     //    [scrollView addSubview:anotherHypnosisView];
     
     HypnosisViewController *hypnosisViewController = [[HypnosisViewController alloc] init];
+    ReminderViewController *reminderViewController = [[ReminderViewController alloc] init];
     
-    [self.window setRootViewController:hypnosisViewController];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    [tabBarController setViewControllers:@[hypnosisViewController,
+                                           reminderViewController]];
+    
+    [self.window setRootViewController:tabBarController];
     
     [self.window setBackgroundColor:UIColor.whiteColor];
     [self.window makeKeyAndVisible];

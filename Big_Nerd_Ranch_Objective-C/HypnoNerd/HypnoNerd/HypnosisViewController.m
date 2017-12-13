@@ -16,6 +16,21 @@
 
 @implementation HypnosisViewController
 
+#pragma mark - Initialization
+
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        [self.tabBarItem setTitle:@"Hypnotize"];
+        
+        UIImage *itemImage = [UIImage imageNamed:@"Hypno"];
+        [self.tabBarItem setImage:itemImage];
+    }
+    
+    return self;
+}
+
 #pragma mark - View Life Cycle
 
 - (void)loadView {
