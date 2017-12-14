@@ -228,6 +228,19 @@ RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니�
             * readonly
                 * To implement a getter
         * Memory management attribute
+            * For properties that do not point to objects
+                * no need for memory management
+                    * **unsafe_unretained** (default value for non-object properties)
+                        * direct assignment
+                        * Unlike a weak reference,
+                            * not automatically set to *nil* when the object that it points to is destroyed
+                    * **assign**
+            * For properties that manage a pointer to an Objective-C object
+                * **strong** (default value for object properties)
+                * **weak**
+                * **copy**
+                    * The copy method returns an immutable object
+                    * *copy* gives you a strong reference to the object pointed to
   
 #### 참고 자료
 
