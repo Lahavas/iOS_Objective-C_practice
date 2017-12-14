@@ -24,13 +24,13 @@
 
 #pragma mark - Properties
 
-@property (nonatomic) NSString *itemName;
-@property (nonatomic) NSString *serialNumber;
+@property (nonatomic, copy) NSString *itemName;
+@property (nonatomic, copy) NSString *serialNumber;
 @property (nonatomic) int valueInDollars;
-@property (nonatomic, readonly) NSDate *dateCreated;
+@property (nonatomic, readonly, strong) NSDate *dateCreated;
 
-@property (nonatomic) BNRItem *containedItem;
-@property (nonatomic) BNRItem *container;
+@property (nonatomic, strong) BNRItem *containedItem;
+@property (nonatomic, weak) BNRItem *container;
 
 
 #pragma mark - Class Methods

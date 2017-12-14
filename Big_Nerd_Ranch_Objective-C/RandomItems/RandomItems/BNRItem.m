@@ -77,8 +77,13 @@
     return self;
 }
 
-//#pragma mark - Accessor Methods
-//
+#pragma mark - Accessor Methods
+
+- (void)setContainedItem:(BNRItem *)containedItem {
+    _containedItem = containedItem;
+    self.containedItem.container = self;
+}
+
 //- (NSString *)itemName {
 //    return _itemName;
 //}
