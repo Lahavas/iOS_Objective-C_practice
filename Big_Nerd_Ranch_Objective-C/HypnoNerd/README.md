@@ -7,6 +7,8 @@ HypnoNerd는 최면을 거는 듯한 View와 최면 기록에 대한 Reminder �
 
 * [ ] Draw an Image
 * [ ] Shadows and Gradients
+* [ ] Another Tab
+* [ ] Controller Logic
 
 ----------------------------------------------------------------------
 
@@ -127,12 +129,58 @@ HypnoNerd는 최면을 거는 듯한 View와 최면 기록에 대한 Reminder �
 
 ### Ch06 View Controllers
 
-* 
+* Subclassing UIViewCOntroller
+    * The view of a view controller
+    * Creating a view programmatically
+    * Setting the root view controller
+* Another UIViewCOntroller
+    * Creating a view in Interface Builder
+        * Creating view objects
+        * Loading a NIB file
+        * Connecting to File's Owner
+* UITabBarController
+    * Tab bar items
+* UIViewController Initializers
+* Adding a Local Notification
+* Loaded and Appearing Views
+    * Accessing subviews
+* Interacting with View Controllers and Their Views
+* For the More Curious: Key-Value Coding
+* For the More Curious: Retina Display
 
 #### 주요 개념
 
-* 
-    * 
+* **View Controller**
+    * For creating view objects that make up the hierarchy
+    * For handling events associated with the view objects in its hierarchy
+    * For adding its hierarchy to the window
+    * As a subclass of UIViewController
+        * **view** property
+            * The **root** of the view controller's view hierarchy
+            * **lazy loading**
+                * To conserve memory and improve performance
+        * Creating a view programmatically
+            * When a view controller is created
+                * its *view* property is *nil*
+                * If a view controller is asked for its *view*
+                    * If its *view* is nil
+                        * The view controller is sent the **loadView** message
+            * **loadView** method
+                * To create an instance of UIView or its subclass
+                * To set it as the *view* of the view controller
+        * Creating a view in Interface Builder
+            * Creating view objects
+            * Loading a NIB file
+                * The default implementation of **loadView**
+                    * knows how to handle loading a NIB file
+            * Connecting to **File's Owner**
+        * Setting the root view controller
+            * UIWIndow's object
+                * rootViewController property
+                    * adds that view controller's *view* as a subview of the window
+                    * automatically resizes the view to be the same size as the window
+  
+* File's Owner
   
 #### 참고 자료
 
