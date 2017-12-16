@@ -213,6 +213,15 @@ RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니�
             * Parent-Child Relationship
                 * The parent can own its child
                     * but a child should **never own its parent**
+    * Manual Reference Counting
+        * Ownership changes only happened when you sent an explicit message to an object
+            * [anObject release]
+            * [anObject retain]
+        * **Autorelease Pool**
+            * When an object was send the message **autorelease**
+                * The autorelease pool would take ownership of an object temporarily
+                * It could be returned from the method
+                    * that created it without burdening the creator or the receiver with ownership responsibilities
   
 * **Property**
     * A convenient alternative to writing out accessor methods
@@ -240,10 +249,19 @@ RandomItems는 Objective-C의 문법 학습을 위한 연습 프로젝트입니�
                 * **weak**
                 * **copy**
                     * The copy method returns an immutable object
+                        * It if safer to do this for *Immutable Property*
                     * *copy* gives you a strong reference to the object pointed to
+                        * The original string is **not modified**
+    * Property Synthesis
+        * To generate the implementation for the accessor methods
+        * To declare and create an instance variable
+        * @synthesis propertyName = _iVarName
   
 #### 참고 자료
 
+> [Advanced Memory Management Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html)  
+> [Transitioning to ARC Release Notes](https://developer.apple.com/library/content/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226)  
+> [Property 관련 자료](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html#//apple_ref/doc/uid/TP40011210-CH5-SW2)  
 > 
 
 ----------------------------------------------------------------------
