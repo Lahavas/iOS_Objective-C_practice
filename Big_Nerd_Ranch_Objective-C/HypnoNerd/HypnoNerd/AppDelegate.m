@@ -45,9 +45,9 @@
     [tabBarController setViewControllers:@[hypnosisViewController,
                                            reminderViewController]];
     
-    [self.window setRootViewController:tabBarController];
-    
     [self.window setBackgroundColor:UIColor.whiteColor];
+    
+    [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
     
     return YES;

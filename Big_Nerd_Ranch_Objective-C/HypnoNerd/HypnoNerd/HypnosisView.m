@@ -29,7 +29,7 @@
     return self;
 }
 
-#pragma mark - Setter Method
+#pragma mark - Accessor Method
 
 - (void)setCircleColor:(UIColor *)circleColor {
     _circleColor = circleColor;

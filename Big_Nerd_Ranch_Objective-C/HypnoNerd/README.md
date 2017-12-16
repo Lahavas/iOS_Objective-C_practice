@@ -86,3 +86,56 @@ HypnoNerd는 최면을 거는 듯한 View와 최면 기록에 대한 Reminder �
 
 ----------------------------------------------------------------------
 
+### Ch05 Views: Redrawing and UIScrollView
+
+* The Run Loop and Redrawing Views
+* Class Extensions
+* Using UIScrollView
+    * Panning and paging
+
+#### 주요 개념
+
+* **The Run Loop**
+    * To listen for events
+        * When an event occurs
+            * The run loop finds the appropriate handler methods
+                * and those handler methods call other methods
+                * all of the methods have completed, *control* returns to the run loop
+            * When the run loop regains control
+                * it checks a list of **dirty views**
+                    * that need to be re-rendered
+            * Then sends the **drawRect:** message to the views in this list
+    * *Batching* the redrawing of views at the end of a run loop cycle
+    * **setNeedsDisplay** method
+        * To get a view on the list of dirty views
+        * The subclasses of UIView send themselves **setNeedsDisplay**
+            * *whenever their content changes*
+        * To mark only a portion of a view as needing to be redrawn
+            * **setNeedsDisplayInRect:** method
+  
+* Class Extensions
+    * To hide implementation details
+        * do not need to be visible outside of the class
+  
+#### 참고 자료
+
+> [CustomView 관련 자료](https://developer.apple.com/library/content/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/CreatingViews/CreatingViews.html#//apple_ref/doc/uid/TP40009503-CH5-SW23)  
+> [Category and Class Extension 관련 자료](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/CustomizingExistingClasses/CustomizingExistingClasses.html#//apple_ref/doc/uid/TP40011210-CH6-SW1)  
+> [UIScrollView 관련 자료](https://developer.apple.com/documentation/uikit/uiscrollview)  
+
+----------------------------------------------------------------------
+
+### Ch06 View Controllers
+
+* 
+
+#### 주요 개념
+
+* 
+    * 
+  
+#### 참고 자료
+
+> 
+
+----------------------------------------------------------------------
