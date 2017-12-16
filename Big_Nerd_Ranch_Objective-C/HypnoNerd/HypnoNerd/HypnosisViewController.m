@@ -18,8 +18,10 @@
 
 #pragma mark - Initialization
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil
+                         bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil
+                           bundle:nibBundleOrNil];
     
     if (self) {
         [self.tabBarItem setTitle:@"Hypnotize"];
@@ -39,13 +41,13 @@
     
     CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
     UITextField *textField = [[UITextField alloc] initWithFrame:textFieldRect];
-    
+
     [textField setBorderStyle:UITextBorderStyleRoundedRect];
     [textField setPlaceholder:@"Hypnotize me"];
     [textField setReturnKeyType:UIReturnKeyDone];
-    
+
     [textField setDelegate:self];
-    
+
     [backgroundView addSubview:textField];
     
     self.view = backgroundView;
@@ -55,6 +57,7 @@
     [super viewDidLoad];
     
     NSLog(@"HypnosisViewController loaded its view.");
+    NSLog(@"%@", self.view);
 }
 
 #pragma mark - Private Methods

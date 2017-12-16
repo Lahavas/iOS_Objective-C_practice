@@ -10,6 +10,4 @@
 
 @interface HypnosisView : UIView
 
-@property (nonatomic, assign) CGRect frame;
-
 @end
