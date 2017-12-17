@@ -57,7 +57,6 @@
     [super viewDidLoad];
     
     NSLog(@"HypnosisViewController loaded its view.");
-    NSLog(@"%@", self.view);
 }
 
 #pragma mark - Private Methods
