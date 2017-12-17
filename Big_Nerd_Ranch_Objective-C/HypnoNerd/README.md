@@ -168,6 +168,14 @@ HypnoNerd는 최면을 거는 듯한 View와 최면 기록에 대한 Reminder �
             * **loadView** method
                 * To create an instance of UIView or its subclass
                 * To set it as the *view* of the view controller
+            * **viewDidLoad** method
+                * When a view controller finishes loading its view
+                * Override this method
+                    * if the configuration only needs to be done *once* during the run of the app
+            * **viewWillAppear** method
+                * just before its view is added to the window
+                * Override this method
+                    * if the configuration only needs to be done and *redone* every time the view controller appears on screen
         * Creating a view in Interface Builder
             * Creating view objects
             * Loading a NIB file
@@ -179,11 +187,44 @@ HypnoNerd는 최면을 거는 듯한 View와 최면 기록에 대한 Reminder �
                 * rootViewController property
                     * adds that view controller's *view* as a subview of the window
                     * automatically resizes the view to be the same size as the window
+    * UIViewController Initializers
+        * initWithNibName:bundle: method
+            * the designated initializer
+        * init method
+            * calls initWithNibName:bundle:
+            * and passes *nil* for both arguments
+                * *nil* as its NIB name
+                    * it searches for a NIB file with *the name of the class*
+                * *nil* as the bundle
+                    * it look in the *main application bundle*
   
 * File's Owner
+    * A placeholder
+        * a hole intentionally left in the XIB file
+    * When loading a NIB
+        * Instantiate all of the objects archived in the XIB
+        * Drop the object that is loading the NIB into the File's Owner hole
+            * and establish the prepared connection
+    * A view controller's *view* was *automatically* destroyed any time
+        * that system memory was low
+        * and then was recreated lated if needed
+  
+* UITabBarController
+    * To keep an array of view controllers
+    * Tab Bar Items
+        * To display a title and an image
+  
+* Key-Value Coding
+    * a set of methods defined in NSObject
+        * To set and get *the values of properties by name*
+    * when the NIB file is being loaded, the outlets are set using **setValue:forKey:**
+    * **Using the accessor method naming conventions**
   
 #### 참고 자료
 
-> 
+> [View Controller Programming Guide for iOS](https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/)  
+> [UIViewController 관련 자료](https://developer.apple.com/documentation/uikit/uiviewcontroller)  
+> [Nib File 관련 자료](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html)  
+> [Key-Value Coding Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/index.html)  
 
 ----------------------------------------------------------------------
