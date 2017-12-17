@@ -9,6 +9,7 @@ HypnoNerd는 최면을 거는 듯한 View와 최면 기록에 대한 Reminder �
 * [ ] Shadows and Gradients
 * [ ] Another Tab
 * [ ] Controller Logic
+* [ ] Pinch to Zoom
 
 ----------------------------------------------------------------------
 
@@ -226,5 +227,64 @@ HypnoNerd는 최면을 거는 듯한 View와 최면 기록에 대한 Reminder �
 > [UIViewController 관련 자료](https://developer.apple.com/documentation/uikit/uiviewcontroller)  
 > [Nib File 관련 자료](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html)  
 > [Key-Value Coding Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/index.html)  
+
+----------------------------------------------------------------------
+
+### Ch07 Delegation and Text Input
+
+* Text Fields
+    * UIResponder
+    * Configuring the keyboard
+* Delegation
+* Protocols
+* Adding the Labels to the Screen
+* Motion Effects
+* Using the Debugger
+    * Using breakpoints
+    * Stepping through code
+        * Deleting breakpoints
+        * Setting an exception breakpoint
+* For the More Curious: main() and UIApplication
+
+#### 주요 개념
+
+* UITextField
+    * To allow the user to modify the text
+    * When a text field or a text view becomes *firstResponder*
+        * It shows its keyboard
+    * UITextInputTraits
+        * About the keyboard's appearance
+  
+* UIResponder
+    * defines methods for handling events
+    * The **UIWindow** has *a pointer* called **firstResponder**
+        * To indicates who should respond to the other types of events
+  
+* **Delegation pattern**
+    * One form of callbacks
+    * **protocol**
+        * To declare the messages
+            * that the object can send its delegate
+        * required method (default)
+        * optional method
+            * **respondsToSelector:** method
+                * To check at runtime whether an object implements a given method
+    * delegate pointer
+        * always a weak reference
+  
+* main() function
+    * iOS application begins by executing this function
+    * UIApplicationMain
+        * To create an instance of a class called **UIApplication**
+            * To maintain the run loop
+        * To create an instance of the class
+            * that will serve as the UIApplication's *delegate*
+  
+#### 참고 자료
+
+> [UITextField 관련 자료](https://developer.apple.com/documentation/uikit/uitextfield)  
+> [UIApplication 관련 자료](https://developer.apple.com/documentation/uikit/uiapplication)  
+> [Managing your app's life cycle](https://developer.apple.com/documentation/uikit/core_app/managing_your_app_s_life_cycle)  
+> [UIResponder 관련 자료](https://developer.apple.com/documentation/uikit/uiresponder)  
 
 ----------------------------------------------------------------------
