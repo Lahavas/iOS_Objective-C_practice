@@ -87,8 +87,7 @@
 
 #pragma mark - Table View Data Source
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[ItemStore sharedStore] allItems].count;
 }
 
@@ -103,6 +102,19 @@
     [cell.textLabel setText:[item description]];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView
+   commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+    forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSArray *items = [[ItemStore sharedStore] allItems];
+        Item *item = items[indexPath.row];
+        [[ItemStore sharedStore] removeItem:item];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 @end

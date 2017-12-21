@@ -17,5 +17,6 @@
 + (instancetype)sharedStore;
 
 - (Item *)createItem;
+- (void)removeItem:(Item *)item;
 
 @end
