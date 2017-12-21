@@ -26,9 +26,6 @@
     self = [super initWithStyle:style];
     
     if (self) {
-        for (int i = 0; i < 5; i++) {
-            [[ItemStore sharedStore] createItem];
-        }
     }
     
     return self;
@@ -65,7 +62,13 @@
 #pragma mark - IBAction
 
 - (IBAction)addNewItem:(id)sender {
+    Item *newItem = [[ItemStore sharedStore] createItem];
+    NSInteger lastRow = [[[ItemStore sharedStore] allItems] indexOfObject:newItem];
     
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    
+    [self.tableView insertRowsAtIndexPaths:@[indexPath]
+                  withRowAnimation:UITableViewRowAnimationTop];
 }
 
 - (IBAction)toggleEditingMode:(id)sender {
