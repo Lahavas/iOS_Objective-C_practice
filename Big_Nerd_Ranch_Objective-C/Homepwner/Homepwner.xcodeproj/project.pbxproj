@@ -16,6 +16,7 @@
 		CE2DD89B1FEB846900546BD2 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2DD89A1FEB846900546BD2 /* ItemsViewController.m */; };
 		CE2DD89E1FEB87DC00546BD2 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2DD89D1FEB87DC00546BD2 /* Item.m */; };
 		CE2DD8A11FEB88AE00546BD2 /* ItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2DD8A01FEB88AE00546BD2 /* ItemStore.m */; };
+		CE2DD8A81FEB92EB00546BD2 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2DD8A71FEB92EB00546BD2 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		CE2DD89D1FEB87DC00546BD2 /* Item.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		CE2DD89F1FEB88AE00546BD2 /* ItemStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemStore.h; sourceTree = "<group>"; };
 		CE2DD8A01FEB88AE00546BD2 /* ItemStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemStore.m; sourceTree = "<group>"; };
+		CE2DD8A71FEB92EB00546BD2 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				CE2DD8A01FEB88AE00546BD2 /* ItemStore.m */,
 				CE2DD8991FEB846900546BD2 /* ItemsViewController.h */,
 				CE2DD89A1FEB846900546BD2 /* ItemsViewController.m */,
+				CE2DD8A71FEB92EB00546BD2 /* HeaderView.xib */,
 				CE2DD8701FEB7D0500546BD2 /* Assets.xcassets */,
 				CE2DD8721FEB7D0500546BD2 /* LaunchScreen.storyboard */,
 				CE2DD8751FEB7D0500546BD2 /* Info.plist */,
@@ -245,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2DD8A81FEB92EB00546BD2 /* HeaderView.xib in Resources */,
 				CE2DD8741FEB7D0500546BD2 /* LaunchScreen.storyboard in Resources */,
 				CE2DD8711FEB7D0500546BD2 /* Assets.xcassets in Resources */,
 			);

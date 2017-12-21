@@ -12,6 +12,10 @@
 
 @interface ItemsViewController ()
 
+#pragma mark - Private IBOutlet Property
+
+@property (strong, nonatomic) IBOutlet UIView *headerView;
+
 @end
 
 @implementation ItemsViewController
@@ -41,6 +45,41 @@
     
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+    
+    UIView *header = self.headerView;
+    [self.tableView setTableHeaderView:header];
+}
+
+#pragma mark - Accessor Methods
+
+- (UIView *)headerView {
+    if (!_headerView) {
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
+                                      owner:self
+                                    options:nil];
+    }
+    
+    return _headerView;
+}
+
+#pragma mark - IBAction
+
+- (IBAction)addNewItem:(id)sender {
+    
+}
+
+- (IBAction)toggleEditingMode:(id)sender {
+    if (self.isEditing) {
+        [sender setTitle:@"Edit"
+                forState:UIControlStateNormal];
+        [self setEditing:NO
+                animated:YES];
+    } else {
+        [sender setTitle:@"Done"
+                forState:UIControlStateNormal];
+        [self setEditing:YES
+                animated:YES];
+    }
 }
 
 #pragma mark - Table View Data Source
