@@ -87,7 +87,8 @@
 
 #pragma mark - Table View Data Source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
     return [[ItemStore sharedStore] allItems].count;
 }
 
@@ -115,6 +116,13 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+
+- (void)tableView:(UITableView *)tableView
+   moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+          toIndexPath:(NSIndexPath *)destinationIndexPath {
+    [[ItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row
+                                     toIndex:destinationIndexPath.row];
 }
 
 @end
