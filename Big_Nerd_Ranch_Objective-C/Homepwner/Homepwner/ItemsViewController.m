@@ -7,14 +7,11 @@
 //
 
 #import "ItemsViewController.h"
+#import "ItemDetailViewController.h"
 #import "ItemStore.h"
 #import "Item.h"
 
 @interface ItemsViewController ()
-
-#pragma mark - Private IBOutlet Property
-
-@property (strong, nonatomic) IBOutlet UIView *headerView;
 
 @end
 
@@ -26,6 +23,15 @@
     self = [super initWithStyle:style];
     
     if (self) {
+        UINavigationItem *navigationItem = self.navigationItem;
+        [navigationItem setTitle:@"Homepwner"];
+        
+        UIBarButtonItem *addBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                                          target:self
+                                                                                          action:@selector(addNewItem:)];
+        
+        [navigationItem setRightBarButtonItem:addBarButtonItem];
+        [navigationItem setLeftBarButtonItem:self.editButtonItem];
     }
     
     return self;
@@ -42,26 +48,17 @@
     
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
-    
-    UIView *header = self.headerView;
-    [self.tableView setTableHeaderView:header];
 }
 
-#pragma mark - Accessor Methods
-
-- (UIView *)headerView {
-    if (!_headerView) {
-        [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
-                                      owner:self
-                                    options:nil];
-    }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    return _headerView;
+    [self.tableView reloadData];
 }
 
 #pragma mark - IBAction
 
-- (IBAction)addNewItem:(id)sender {
+- (void)addNewItem:(id)sender {
     Item *newItem = [[ItemStore sharedStore] createItem];
     NSInteger lastRow = [[[ItemStore sharedStore] allItems] indexOfObject:newItem];
     
@@ -71,29 +68,27 @@
                   withRowAnimation:UITableViewRowAnimationTop];
 }
 
-- (IBAction)toggleEditingMode:(id)sender {
-    if (self.isEditing) {
-        [sender setTitle:@"Edit"
-                forState:UIControlStateNormal];
-        [self setEditing:NO
-                animated:YES];
-    } else {
-        [sender setTitle:@"Done"
-                forState:UIControlStateNormal];
-        [self setEditing:YES
-                animated:YES];
-    }
+#pragma mark - Table View Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ItemDetailViewController *itemDetailViewController = [[ItemDetailViewController alloc] init];
+    
+    NSArray *items = [[ItemStore sharedStore] allItems];
+    Item *selectedItem = items[indexPath.row];
+    
+    [itemDetailViewController setItem:selectedItem];
+    
+    [self.navigationController pushViewController:itemDetailViewController
+                                         animated:YES];
 }
 
 #pragma mark - Table View Data Source
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[ItemStore sharedStore] allItems].count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
                                                             forIndexPath:indexPath];
     
@@ -105,9 +100,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView
-   commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-    forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSArray *items = [[ItemStore sharedStore] allItems];
         Item *item = items[indexPath.row];
@@ -118,9 +111,7 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView
-   moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-          toIndexPath:(NSIndexPath *)destinationIndexPath {
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     [[ItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row
                                      toIndex:destinationIndexPath.row];
 }

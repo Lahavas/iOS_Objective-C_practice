@@ -23,7 +23,9 @@
     
     ItemsViewController *itemsViewController = [[ItemsViewController alloc] init];
     
-    [self.window setRootViewController:itemsViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
+    
+    [self.window setRootViewController:navigationController];
     
     [self.window setBackgroundColor:UIColor.whiteColor];
     [self.window makeKeyAndVisible];
