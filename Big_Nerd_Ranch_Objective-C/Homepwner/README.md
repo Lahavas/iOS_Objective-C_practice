@@ -8,6 +8,12 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
 * [ ] Sections
 * [ ] Constant Rows
 * [ ] Customizing the Table
+* [ ] Renaming the Delete Button
+* [ ] Preventing Reordering
+* [ ] Really Preventing Reordering
+* [ ] Displaying a Number Pad
+* [ ] Dismissing a Number Pad
+* [ ] Pushing More View Controllers
 
 ----------------------------------------------------------------------
 
@@ -44,11 +50,23 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
             * initWithStyle:
                 * UITableViewStylePlain
                 * UITableViewStyleGrouped
+    * NSIndexPath
+        * *section* and *row*
   
 * **UITableViewCell**
     * Each row of a table view is a view
     * Subviews
-        * contentView
+        * *contentView*
+            * *The superview for the content of the cell*
+        * accessory indicator
+            * To show an action-oriented icon
+    * Reusing UITableViewCells
+        * To preserve the lives of iOS devices everywhere
+            * Offscreen cells are put into *a pool of cells* available for reuse
+            * The **data source** first checks the poll
+        * Every cell has a *reuseIdentifier* property
+            * you need to tell the table view *which kind of cell* it should instantiate if there are no cells in the reuse pool
+                * *register cell with cell identifier*
   
 * *static variable*
     * is not destroyed when the method is done executing
@@ -60,5 +78,45 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
   
 #### 참고 자료
 
-> 
+> [UITableView 관련 자료](https://developer.apple.com/documentation/uikit/uitableview)  
 
+----------------------------------------------------------------------
+
+### Ch09 Editing UITableView
+
+* Editing Mode
+* Adding Rows
+* Deleting Rows
+* Moving Rows
+
+#### 주요 개념
+
+* Editing Mode
+    * UITableView's *editing* property
+        * The rows of the table can be manipulated by the user
+        * Not to allow the user to edit the *content* of a row
+  
+#### 참고 자료
+
+> [UITableView 관련 자료](https://developer.apple.com/documentation/uikit/uitableview)  
+
+----------------------------------------------------------------------
+
+### Ch09 UINavigationController
+
+* UINavigationController
+* An Additional UIViewController
+* Navigating with UINavigationController
+    * Pushing view controllers
+    * Passing data between view controllers
+    * Appearing and disappearing views
+* UINavigationBar
+
+#### 주요 개념
+
+* 
+    * 
+  
+#### 참고 자료
+
+> 
