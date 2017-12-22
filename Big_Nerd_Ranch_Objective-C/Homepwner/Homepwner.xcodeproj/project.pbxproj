@@ -18,6 +18,7 @@
 		CE2DD8A11FEB88AE00546BD2 /* ItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2DD8A01FEB88AE00546BD2 /* ItemStore.m */; };
 		CE2DD8AC1FEB9EE200546BD2 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2DD8AA1FEB9EE200546BD2 /* ItemDetailViewController.m */; };
 		CE2DD8AD1FEB9EE200546BD2 /* ItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2DD8AB1FEB9EE200546BD2 /* ItemDetailViewController.xib */; };
+		CE401CB91FED0B6400E720BC /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CE401CB81FED0B6400E720BC /* ImageStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		CE2DD8A91FEB9EE200546BD2 /* ItemDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		CE2DD8AA1FEB9EE200546BD2 /* ItemDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 		CE2DD8AB1FEB9EE200546BD2 /* ItemDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailViewController.xib; sourceTree = "<group>"; };
+		CE401CB71FED0B6400E720BC /* ImageStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
+		CE401CB81FED0B6400E720BC /* ImageStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				CE2DD89D1FEB87DC00546BD2 /* Item.m */,
 				CE2DD89F1FEB88AE00546BD2 /* ItemStore.h */,
 				CE2DD8A01FEB88AE00546BD2 /* ItemStore.m */,
+				CE401CB71FED0B6400E720BC /* ImageStore.h */,
+				CE401CB81FED0B6400E720BC /* ImageStore.m */,
 				CE2DD8991FEB846900546BD2 /* ItemsViewController.h */,
 				CE2DD89A1FEB846900546BD2 /* ItemsViewController.m */,
 				CE2DD8A91FEB9EE200546BD2 /* ItemDetailViewController.h */,
@@ -282,6 +287,7 @@
 			files = (
 				CE2DD89E1FEB87DC00546BD2 /* Item.m in Sources */,
 				CE2DD89B1FEB846900546BD2 /* ItemsViewController.m in Sources */,
+				CE401CB91FED0B6400E720BC /* ImageStore.m in Sources */,
 				CE2DD8771FEB7D0500546BD2 /* main.m in Sources */,
 				CE2DD8691FEB7D0500546BD2 /* AppDelegate.m in Sources */,
 				CE2DD8AC1FEB9EE200546BD2 /* ItemDetailViewController.m in Sources */,
