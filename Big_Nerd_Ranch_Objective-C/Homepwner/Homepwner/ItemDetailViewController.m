@@ -9,7 +9,7 @@
 #import "ItemDetailViewController.h"
 #import "Item.h"
 
-@interface ItemDetailViewController ()
+@interface ItemDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 #pragma mark - Private IBOutlet Properties
 
@@ -17,7 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end
 
@@ -65,6 +66,35 @@
 - (void)setItem:(Item *)item {
     _item = item;
     [self.navigationItem setTitle:_item.itemName];
+}
+
+#pragma mark - IBAction
+
+- (IBAction)takePicture:(id)sender {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+    } else {
+        [imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [imagePickerController setDelegate:self];
+    
+    [self presentViewController:imagePickerController
+                       animated:YES
+                     completion:nil];
+}
+
+#pragma mark - Image Picker Delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    [self.imageView setImage:image];
+    
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
 }
 
 @end
