@@ -114,7 +114,7 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
 
 #### 주요 개념
 
-* 
+* **UINavigationController**
     * 
   
 #### 참고 자료
