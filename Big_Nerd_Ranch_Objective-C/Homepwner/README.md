@@ -14,6 +14,9 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
 * [ ] Displaying a Number Pad
 * [ ] Dismissing a Number Pad
 * [ ] Pushing More View Controllers
+* [ ] Editing an Image
+* [ ] Removing an Image
+* [ ] Camera Overlay
 
 ----------------------------------------------------------------------
 
@@ -102,7 +105,7 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
 
 ----------------------------------------------------------------------
 
-### Ch09 UINavigationController
+### Ch10 UINavigationController
 
 * UINavigationController
 * An Additional UIViewController
@@ -115,6 +118,52 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
 #### 주요 개념
 
 * **UINavigationController**
+    * Stack of View Controllers
+        * *viewControllers* property
+            * NSArray Type
+        * *rootViewController*
+            * the bottom of the stack
+        * *topViewController*
+            * the top of the stack
+            * its *view* is visible
+  
+* UINavigationBar
+    * UINavigationItem
+        * Not a subclass of UIView
+        * UIBarButtonItem
+            * *leftBarButtonItem*
+            * *rightBarButtonItem*
+        * *titleView*
+  
+#### 참고 자료
+
+> [UINavigationController 관련 자료](https://developer.apple.com/documentation/uikit/uinavigationcontroller)  
+> [UINavigationBar 관련 자료](https://developer.apple.com/documentation/uikit/uinavigationbar?language=objc)  
+> [UINavigationItem 관련 자료](https://developer.apple.com/documentation/uikit/uinavigationitem?language=objc)  
+
+----------------------------------------------------------------------
+
+### Ch11 Camera
+
+* Displaying Images and UIImageView
+    * Adding a camera button
+* Taking Pictures and UIImagePickerController
+    * Setting the image picker's sourceType
+    * Setting the image picker's delegate
+    * Presenting the image picker modally
+    * Saving the image
+* Creating BNRImageStore
+* NSDictionary
+* Creating and Using Keys
+* Wrapping up BNRImageStore
+* Dismissing the Keyboard
+* For the More Curious: Navigating Implementation Files
+    * #pragma mark
+* For the More Curious: Recording Video
+
+#### 주요 개념
+
+* 
     * 
   
 #### 참고 자료
