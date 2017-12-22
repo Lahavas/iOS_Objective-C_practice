@@ -53,7 +53,7 @@
 #pragma mark - Accessor Methods
 
 - (NSArray *)allItems {
-    return self.privateItems;
+    return [self.privateItems copy];
 }
 
 #pragma mark - Public Methods
