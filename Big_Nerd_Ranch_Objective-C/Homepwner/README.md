@@ -163,8 +163,18 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
 
 #### 주요 개념
 
-* 
-    * 
+* Image Store
+    * To store images separately from other data
+    * To fetch and cache images as they are needed
+    * To flush the cache when memory runs low
+  
+* UIToolbar
+    * a lot like a UINavigationBar
+        * add instances of UIBarButtonItem
+    * a toolbar has *an array of bar button items*
+  
+* UIImagePickerController
+    * sourceType constant
   
 #### 참고 자료
 
