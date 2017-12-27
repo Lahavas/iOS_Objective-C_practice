@@ -10,7 +10,11 @@
 
 @interface ImageStore : NSObject
 
+#pragma mark - Singleton Methods
+
 + (instancetype)sharedStore;
+
+#pragma mark - Key-Value Coding Methods
 
 - (void)setImage:(UIImage *)image forKey:(NSString *)key;
 - (UIImage *)imageForKey:(NSString *)key;

@@ -12,9 +12,15 @@
 
 @interface ItemStore : NSObject
 
+#pragma mark - Public Properties
+
 @property (nonatomic, readonly) NSArray *allItems;
 
+#pragma mark - Singleton Methods
+
 + (instancetype)sharedStore;
+
+#pragma mark - Public Methods
 
 - (Item *)createItem;
 - (void)removeItem:(Item *)item;

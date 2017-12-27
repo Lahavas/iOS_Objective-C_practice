@@ -12,6 +12,8 @@
 
 @interface ItemDetailViewController : UIViewController
 
+#pragma mark - Public Properties
+
 @property (strong, nonatomic) Item *item;
 
 @end
