@@ -10,7 +10,7 @@
 #import "Item.h"
 #import "ImageStore.h"
 
-@interface ItemDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ItemDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 #pragma mark - Private IBOutlet Properties
 
@@ -91,6 +91,10 @@
                      completion:nil];
 }
 
+- (IBAction)backgroundTapped:(id)sender {
+    [self.view endEditing:YES];
+}
+
 #pragma mark - Image Picker Delegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -103,6 +107,13 @@
     
     [self dismissViewControllerAnimated:YES
                              completion:nil];
+}
+
+#pragma mark - Text Field Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
