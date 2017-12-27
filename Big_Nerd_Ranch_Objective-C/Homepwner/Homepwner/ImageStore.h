@@ -14,7 +14,7 @@
 
 + (instancetype)sharedStore;
 
-#pragma mark - Key-Value Coding Methods
+#pragma mark - Public Methods
 
 - (void)setImage:(UIImage *)image forKey:(NSString *)key;
 - (UIImage *)imageForKey:(NSString *)key;

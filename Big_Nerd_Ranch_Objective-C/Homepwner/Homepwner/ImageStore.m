@@ -48,7 +48,7 @@
     return self;
 }
 
-#pragma mark - Key-Value Coding Methods
+#pragma mark - Public Methods
 
 - (void)setImage:(UIImage *)image forKey:(NSString *)key {
     self.dictionary[key] = image;
