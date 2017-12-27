@@ -17,6 +17,8 @@
 @property (nonatomic) NSInteger valueInDollars;
 @property (nonatomic, readonly, strong) NSDate *dateCreated;
 
+@property (nonatomic, copy) NSString *itemKey;
+
 #pragma mark - Class Methods
 
 + (instancetype)randomItem;

@@ -8,6 +8,7 @@
 
 #import "ItemStore.h"
 #import "Item.h"
+#import "ImageStore.h"
 
 @interface ItemStore ()
 
@@ -67,6 +68,9 @@
 }
 
 - (void)removeItem:(Item *)item {
+    NSString *key = item.itemKey;
+    [[ImageStore sharedStore] deleteImageForKey:key];
+    
     [self.privateItems removeObjectIdenticalTo:item];
 }
 

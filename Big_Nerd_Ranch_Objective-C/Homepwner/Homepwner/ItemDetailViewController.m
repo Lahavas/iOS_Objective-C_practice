@@ -8,6 +8,7 @@
 
 #import "ItemDetailViewController.h"
 #import "Item.h"
+#import "ImageStore.h"
 
 @interface ItemDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -48,6 +49,10 @@
     }
     
     [self.dateLabel setText:[dateFormatter stringFromDate:item.dateCreated]];
+    
+    NSString *itemKey = self.item.itemKey;
+    UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:itemKey];
+    [self.imageView setImage:imageToDisplay];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -90,6 +95,9 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    [[ImageStore sharedStore] setImage:image
+                                forKey:self.item.itemKey];
     
     [self.imageView setImage:image];
     
