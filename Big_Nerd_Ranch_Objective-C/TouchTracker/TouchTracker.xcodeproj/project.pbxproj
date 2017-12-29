@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		CE17F8891FF5E6EF00B7694A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17F8881FF5E6EF00B7694A /* AppDelegate.m */; };
-		CE17F88C1FF5E6EF00B7694A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17F88B1FF5E6EF00B7694A /* ViewController.m */; };
-		CE17F88F1FF5E6EF00B7694A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE17F88D1FF5E6EF00B7694A /* Main.storyboard */; };
 		CE17F8911FF5E6EF00B7694A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE17F8901FF5E6EF00B7694A /* Assets.xcassets */; };
 		CE17F8941FF5E6EF00B7694A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE17F8921FF5E6EF00B7694A /* LaunchScreen.storyboard */; };
 		CE17F8971FF5E6EF00B7694A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17F8961FF5E6EF00B7694A /* main.m */; };
 		CE17F8A11FF5E6EF00B7694A /* TouchTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17F8A01FF5E6EF00B7694A /* TouchTrackerTests.m */; };
 		CE17F8AC1FF5E6EF00B7694A /* TouchTrackerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17F8AB1FF5E6EF00B7694A /* TouchTrackerUITests.m */; };
+		CE17F8BB1FF5E82A00B7694A /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17F8BA1FF5E82A00B7694A /* Line.m */; };
+		CE17F8BE1FF5E89400B7694A /* DrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17F8BD1FF5E89400B7694A /* DrawViewController.m */; };
+		CE17F8C11FF5E8A800B7694A /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE17F8C01FF5E8A800B7694A /* DrawView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +39,6 @@
 		CE17F8841FF5E6EF00B7694A /* TouchTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE17F8871FF5E6EF00B7694A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE17F8881FF5E6EF00B7694A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CE17F88A1FF5E6EF00B7694A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CE17F88B1FF5E6EF00B7694A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		CE17F88E1FF5E6EF00B7694A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE17F8901FF5E6EF00B7694A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE17F8931FF5E6EF00B7694A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE17F8951FF5E6EF00B7694A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +49,12 @@
 		CE17F8A71FF5E6EF00B7694A /* TouchTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE17F8AB1FF5E6EF00B7694A /* TouchTrackerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchTrackerUITests.m; sourceTree = "<group>"; };
 		CE17F8AD1FF5E6EF00B7694A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE17F8B91FF5E82A00B7694A /* Line.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		CE17F8BA1FF5E82A00B7694A /* Line.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
+		CE17F8BC1FF5E89400B7694A /* DrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawViewController.h; sourceTree = "<group>"; };
+		CE17F8BD1FF5E89400B7694A /* DrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawViewController.m; sourceTree = "<group>"; };
+		CE17F8BF1FF5E8A800B7694A /* DrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
+		CE17F8C01FF5E8A800B7694A /* DrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +107,12 @@
 			children = (
 				CE17F8871FF5E6EF00B7694A /* AppDelegate.h */,
 				CE17F8881FF5E6EF00B7694A /* AppDelegate.m */,
-				CE17F88A1FF5E6EF00B7694A /* ViewController.h */,
-				CE17F88B1FF5E6EF00B7694A /* ViewController.m */,
-				CE17F88D1FF5E6EF00B7694A /* Main.storyboard */,
+				CE17F8B91FF5E82A00B7694A /* Line.h */,
+				CE17F8BA1FF5E82A00B7694A /* Line.m */,
+				CE17F8BF1FF5E8A800B7694A /* DrawView.h */,
+				CE17F8C01FF5E8A800B7694A /* DrawView.m */,
+				CE17F8BC1FF5E89400B7694A /* DrawViewController.h */,
+				CE17F8BD1FF5E89400B7694A /* DrawViewController.m */,
 				CE17F8901FF5E6EF00B7694A /* Assets.xcassets */,
 				CE17F8921FF5E6EF00B7694A /* LaunchScreen.storyboard */,
 				CE17F8951FF5E6EF00B7694A /* Info.plist */,
@@ -240,7 +247,6 @@
 			files = (
 				CE17F8941FF5E6EF00B7694A /* LaunchScreen.storyboard in Resources */,
 				CE17F8911FF5E6EF00B7694A /* Assets.xcassets in Resources */,
-				CE17F88F1FF5E6EF00B7694A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,9 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE17F88C1FF5E6EF00B7694A /* ViewController.m in Sources */,
+				CE17F8BE1FF5E89400B7694A /* DrawViewController.m in Sources */,
+				CE17F8BB1FF5E82A00B7694A /* Line.m in Sources */,
 				CE17F8971FF5E6EF00B7694A /* main.m in Sources */,
 				CE17F8891FF5E6EF00B7694A /* AppDelegate.m in Sources */,
+				CE17F8C11FF5E8A800B7694A /* DrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,14 +311,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE17F88D1FF5E6EF00B7694A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE17F88E1FF5E6EF00B7694A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE17F8921FF5E6EF00B7694A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
