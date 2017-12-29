@@ -175,6 +175,23 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
   
 * UIImagePickerController
     * sourceType constant
+    * mediaTypes constant
+  
+#### 참고 자료
+
+> [UIImagePickerController 관련 자료](https://developer.apple.com/documentation/uikit/uiimagepickercontroller?language=objc)  
+> [MobileCoreServices 관련 자료](https://developer.apple.com/documentation/mobilecoreservices?language=objc)  
+
+----------------------------------------------------------------------
+
+### Ch12 Touch Events and UIResponder
+
+* 
+
+#### 주요 개념
+
+* 
+    * 
   
 #### 참고 자료
 
