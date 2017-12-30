@@ -16,6 +16,9 @@
 @property (strong, nonatomic) NSMutableDictionary *linesInProgress;
 @property (strong, nonatomic) NSMutableArray *finishedLines;
 
+@property (weak, nonatomic) Line *selectedLine;
+
+@property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
 @property (strong, nonatomic) UITapGestureRecognizer *doubleTapGestureRecognizer;
 
 @end
@@ -41,7 +44,13 @@
         [self.doubleTapGestureRecognizer setNumberOfTapsRequired:2];
         [self.doubleTapGestureRecognizer setDelaysTouchesBegan:YES];
         
+        self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                            action:@selector(tap:)];
+        [self.tapGestureRecognizer setDelaysTouchesBegan:YES];
+        [self.tapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
+        
         [self addGestureRecognizer:self.doubleTapGestureRecognizer];
+        [self addGestureRecognizer:self.tapGestureRecognizer];
     }
     
     return self;
@@ -49,6 +58,7 @@
 
 - (void)dealloc {
     [self removeGestureRecognizer:self.doubleTapGestureRecognizer];
+    [self removeGestureRecognizer:self.tapGestureRecognizer];
 }
 
 #pragma mark - Drawing View
@@ -64,6 +74,11 @@
     [[UIColor redColor] set];
     for (NSValue *key in self.linesInProgress) {
         [self strokeLine:[self.linesInProgress objectForKey:key]];
+    }
+    
+    if (self.selectedLine) {
+        [[UIColor greenColor] set];
+        [self strokeLine:self.selectedLine];
     }
 }
 
@@ -132,13 +147,52 @@
     [self setNeedsDisplay];
 }
 
+#pragma mark - First Responder
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
 #pragma mark - Actions
+
+- (void)tap:(UIGestureRecognizer *)gestureRecognizer {
+    NSLog(@"Recognized Tap");
+    
+    CGPoint point = [gestureRecognizer locationInView:self];
+    self.selectedLine = [self lineAtPoint:point];
+    
+    if (self.selectedLine) {
+        [self becomeFirstResponder];
+        
+        UIMenuController *menuController = [UIMenuController sharedMenuController];
+        
+        UIMenuItem *deleteItem = [[UIMenuItem alloc] initWithTitle:@"Delete"
+                                                            action:@selector(deleteLine:)];
+        [menuController setMenuItems:@[deleteItem]];
+        
+        [menuController setTargetRect:CGRectMake(point.x, point.y, 2.0, 2.0)
+                               inView:self];
+        [menuController setMenuVisible:YES
+                              animated:YES];
+    } else {
+        [[UIMenuController sharedMenuController] setMenuVisible:NO
+                                                       animated:YES];
+    }
+    
+    [self setNeedsDisplay];
+}
 
 - (void)doubleTap:(UIGestureRecognizer *)gestureRecognizer {
     NSLog(@"Recognized Double Tap");
     
     [self.linesInProgress removeAllObjects];
     [self.finishedLines removeAllObjects];
+    
+    [self setNeedsDisplay];
+}
+
+- (void)deleteLine:(id)sender {
+    [self.finishedLines removeObject:self.selectedLine];
     
     [self setNeedsDisplay];
 }
@@ -154,6 +208,24 @@
     [path moveToPoint:line.begin];
     [path addLineToPoint:line.end];
     [path stroke];
+}
+
+- (Line *)lineAtPoint:(CGPoint)point {
+    for (Line *line in self.finishedLines) {
+        CGPoint begin = line.begin;
+        CGPoint end = line.end;
+        
+        for (float t = 0.0; t <= 1.0; t += 0.05) {
+            float x = begin.x + t * (end.x - begin.x);
+            float y = begin.y + t * (end.y - begin.y);
+            
+            if (hypot(x - point.x, y - point.y) < 20.0) {
+                return line;
+            }
+        }
+    }
+    
+    return nil;
 }
 
 @end
