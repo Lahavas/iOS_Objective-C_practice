@@ -83,9 +83,18 @@ TouchTracker는 Touch Event와 Gesture 관련 학습을 위한 Project입니다.
 
 #### 주요 개념
 
-* 
-    * 
+* **UIGestureRecognizer**
+    * To intercept touches that are on their way to being handled by a view
+    * A number of *subclasses* of UIGestureRecognizer
+        * You give it *a target-action pair*
+        * and *attach it* to a view
   
+* **UIMenuController**
+    * a list of **UIMenuItem** objects
+        * presented in an existing view
+        * Each item has a title and an action
+    * Only one UIMenuController *per application*
+
 #### 참고 자료
 
 > 
