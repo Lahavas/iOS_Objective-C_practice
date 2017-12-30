@@ -16,6 +16,8 @@
 @property (strong, nonatomic) NSMutableDictionary *linesInProgress;
 @property (strong, nonatomic) NSMutableArray *finishedLines;
 
+@property (strong, nonatomic) UITapGestureRecognizer *doubleTapGestureRecognizer;
+
 @end
 
 #pragma mark -
@@ -33,9 +35,20 @@
         
         [self setBackgroundColor:[UIColor grayColor]];
         [self setMultipleTouchEnabled:YES];
+        
+        self.doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                  action:@selector(doubleTap:)];
+        [self.doubleTapGestureRecognizer setNumberOfTapsRequired:2];
+        [self.doubleTapGestureRecognizer setDelaysTouchesBegan:YES];
+        
+        [self addGestureRecognizer:self.doubleTapGestureRecognizer];
     }
     
     return self;
+}
+
+- (void)dealloc {
+    [self removeGestureRecognizer:self.doubleTapGestureRecognizer];
 }
 
 #pragma mark - Drawing View
@@ -115,6 +128,17 @@
         NSValue *key = [NSValue valueWithNonretainedObject:touch];
         [self.linesInProgress removeObjectForKey:key];
     }
+    
+    [self setNeedsDisplay];
+}
+
+#pragma mark - Actions
+
+- (void)doubleTap:(UIGestureRecognizer *)gestureRecognizer {
+    NSLog(@"Recognized Double Tap");
+    
+    [self.linesInProgress removeAllObjects];
+    [self.finishedLines removeAllObjects];
     
     [self setNeedsDisplay];
 }
