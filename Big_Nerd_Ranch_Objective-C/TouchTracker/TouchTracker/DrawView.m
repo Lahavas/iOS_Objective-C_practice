@@ -18,8 +18,11 @@
 
 @property (weak, nonatomic) Line *selectedLine;
 
+#pragma mark - Gesture Recognizer's Properties
+
 @property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
 @property (strong, nonatomic) UITapGestureRecognizer *doubleTapGestureRecognizer;
+@property (strong, nonatomic) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
 @end
 
@@ -49,8 +52,12 @@
         [self.tapGestureRecognizer setDelaysTouchesBegan:YES];
         [self.tapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
         
+        self.longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                                        action:@selector(longPress:)];
+        
         [self addGestureRecognizer:self.doubleTapGestureRecognizer];
         [self addGestureRecognizer:self.tapGestureRecognizer];
+        [self addGestureRecognizer:self.longPressGestureRecognizer];
     }
     
     return self;
@@ -59,6 +66,7 @@
 - (void)dealloc {
     [self removeGestureRecognizer:self.doubleTapGestureRecognizer];
     [self removeGestureRecognizer:self.tapGestureRecognizer];
+    [self removeGestureRecognizer:self.longPressGestureRecognizer];
 }
 
 #pragma mark - Drawing View
@@ -153,7 +161,16 @@
     return YES;
 }
 
-#pragma mark - Actions
+#pragma mark - Gesture Recognizer's Actions
+
+- (void)doubleTap:(UIGestureRecognizer *)gestureRecognizer {
+    NSLog(@"Recognized Double Tap");
+    
+    [self.linesInProgress removeAllObjects];
+    [self.finishedLines removeAllObjects];
+    
+    [self setNeedsDisplay];
+}
 
 - (void)tap:(UIGestureRecognizer *)gestureRecognizer {
     NSLog(@"Recognized Tap");
@@ -182,14 +199,22 @@
     [self setNeedsDisplay];
 }
 
-- (void)doubleTap:(UIGestureRecognizer *)gestureRecognizer {
-    NSLog(@"Recognized Double Tap");
-    
-    [self.linesInProgress removeAllObjects];
-    [self.finishedLines removeAllObjects];
+- (void)longPress:(UIGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        CGPoint point = [gestureRecognizer locationInView:self];
+        self.selectedLine = [self lineAtPoint:point];
+        
+        if (self.selectedLine) {
+            [self.linesInProgress removeAllObjects];
+        }
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        self.selectedLine = nil;
+    }
     
     [self setNeedsDisplay];
 }
+
+#pragma mark - Actions
 
 - (void)deleteLine:(id)sender {
     [self.finishedLines removeObject:self.selectedLine];
