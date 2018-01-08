@@ -17,6 +17,8 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
 * [ ] Editing an Image
 * [ ] Removing an Image
 * [ ] Camera Overlay
+* [ ] Practice Makes Perfect
+* [ ] Universalize Quiz
 
 ----------------------------------------------------------------------
 
@@ -184,9 +186,22 @@ Homepwner는 본인의 소유물을 앱에 저장하기 위한 프로젝트입�
 
 ----------------------------------------------------------------------
 
-### Ch
+### Ch15 Introduction to Auto Layout
 
-* 
+* Universalizing Homepwner
+* The Auto Layout System
+    * Alignment rectangle and layout attributes
+    * Constraints
+* Adding Constraints in Interface Builder
+    * Adding more constraints
+    * Adding even more constraints
+    * Priorities
+* Debugging Constraints
+    * Ambiguous layout
+    * Unsatisfiable constraints
+    * Misplaced views
+* For the More Curious: Debugging Using the Auto Layout Trace
+* For the More Curious: Multiple XIB Files
 
 #### 주요 개념
 
