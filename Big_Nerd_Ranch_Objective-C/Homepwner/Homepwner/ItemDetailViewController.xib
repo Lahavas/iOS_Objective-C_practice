@@ -79,9 +79,11 @@
                     <rect key="frame" x="49" y="248" width="279" height="315"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-qX-mxK">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vga-qX-mxK">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Qaj-U3-07z"/>
+                    </constraints>
                     <items>
                         <barButtonItem systemItem="camera" id="4mn-eH-ihz">
                             <connections>
@@ -92,6 +94,11 @@
                 </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Vga-qX-mxK" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="QmI-ui-Atb"/>
+                <constraint firstItem="Vga-qX-mxK" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="a1U-Hf-f2l"/>
+                <constraint firstItem="Vga-qX-mxK" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="ejf-i6-JhY"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <connections>
