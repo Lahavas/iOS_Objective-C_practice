@@ -9,7 +9,7 @@
 #import "DrawView.h"
 #import "Line.h"
 
-@interface DrawView ()
+@interface DrawView () <UIGestureRecognizerDelegate>
 
 #pragma mark - Private Properties
 
@@ -23,6 +23,7 @@
 @property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
 @property (strong, nonatomic) UITapGestureRecognizer *doubleTapGestureRecognizer;
 @property (strong, nonatomic) UILongPressGestureRecognizer *longPressGestureRecognizer;
+@property (strong, nonatomic) UIPanGestureRecognizer *panGestureRecognizer;
 
 @end
 
@@ -55,9 +56,16 @@
         self.longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                         action:@selector(longPress:)];
         
+        self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                                            action:@selector(moveLine:)];
+        
+        [self.panGestureRecognizer setDelegate:self];
+        [self.panGestureRecognizer setCancelsTouchesInView:NO];
+        
         [self addGestureRecognizer:self.doubleTapGestureRecognizer];
         [self addGestureRecognizer:self.tapGestureRecognizer];
         [self addGestureRecognizer:self.longPressGestureRecognizer];
+        [self addGestureRecognizer:self.panGestureRecognizer];
     }
     
     return self;
@@ -214,6 +222,32 @@
     [self setNeedsDisplay];
 }
 
+- (void)moveLine:(UIPanGestureRecognizer *)gestureRecognizer {
+    if (!self.selectedLine) {
+        return;
+    }
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [gestureRecognizer translationInView:self];
+        
+        CGPoint begin = self.selectedLine.begin;
+        CGPoint end = self.selectedLine.end;
+        
+        begin.x += translation.x;
+        begin.y += translation.y;
+        end.x += translation.x;
+        end.y += translation.y;
+        
+        self.selectedLine.begin = begin;
+        self.selectedLine.end = end;
+        
+        [self setNeedsDisplay];
+        
+        [gestureRecognizer setTranslation:CGPointZero
+                                   inView:self];
+    }
+}
+
 #pragma mark - Actions
 
 - (void)deleteLine:(id)sender {
@@ -251,6 +285,15 @@
     }
     
     return nil;
+}
+
+#pragma mark - Gesture Recognizer Delegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if (gestureRecognizer == self.panGestureRecognizer) {
+        return YES;
+    }
+    return NO;
 }
 
 @end
