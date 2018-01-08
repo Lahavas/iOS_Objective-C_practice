@@ -97,4 +97,20 @@ TouchTracker는 Touch Event와 Gesture 관련 학습을 위한 Project입니다.
 
 #### 참고 자료
 
+> [UIGestureRecognizer 관련 자료](https://developer.apple.com/documentation/uikit/uigesturerecognizer)  
+> [UIMenuController 관련 자료](https://developer.apple.com/documentation/uikit/uimenucontroller)  
+
+----------------------------------------------------------------------
+
+### Ch14
+
+* 
+
+#### 주요 개념
+
+* 
+    * 
+
+#### 참고 자료
+
 > 
