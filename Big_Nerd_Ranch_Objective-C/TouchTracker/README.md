@@ -102,14 +102,21 @@ TouchTracker는 Touch Event와 Gesture 관련 학습을 위한 Project입니다.
 
 ----------------------------------------------------------------------
 
-### Ch14
+### Ch14 Debugging Tools
 
-* 
+* Guages
+* Instruments
+    * Allocations instrument
+    * Time Profiler instrument
+    * Leaks instrument
+* Static Analyzer
+* Projects, Targets, and Build Settings
+    * Build configurations
+    * Changing a build setting
 
 #### 주요 개념
 
 * 
-    * 
 
 #### 참고 자료
 
